@@ -5,7 +5,11 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'places',
+<<<<<<< HEAD
     pathMatch: 'full',
+=======
+    pathMatch: 'full'
+>>>>>>> 988b1435562a2dee28d90bd1af898553174e123b
   },
   {
     path: 'auth',
