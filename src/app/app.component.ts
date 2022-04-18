@@ -1,3 +1,5 @@
+import { NavController } from '@ionic/angular';
+import { AuthService } from './auth/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+    private navCtrl: NavController
+  ) {}
 
-  onLogout() {}
+  onLogout() {
+    this.authService.logout();
+    this.navCtrl.navigateBack('/auth');
+  }
 }
