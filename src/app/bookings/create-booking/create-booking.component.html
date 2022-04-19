@@ -1,8 +1,15 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onClose()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>My Modal</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <h3>Modal content will be here</h3>
+  <h3>Your place is: {{ selectedPlace.title }}</h3>
+  <p>{{ selectedPlace.description }}</p>
+  <ion-button (click)="onBook()">Book now</ion-button>
 </ion-content>

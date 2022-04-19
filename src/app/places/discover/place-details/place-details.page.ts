@@ -30,7 +30,21 @@ export class PlaceDetailsPage implements OnInit {
     this.modalCtrl
       .create({
         component: CreateBookingComponent,
+        componentProps: {selectedPlace: this.currentPlace}
       })
-      .then((modalEl) => modalEl.present());
+      .then(
+        (modalEl) => {
+          modalEl.present();
+          return modalEl.onDidDismiss();
+        }).then(
+          resultData => {
+            console.log(resultData.data, resultData.role);
+            if (resultData.role === 'confirm') {
+              console.log('BOOKED!');
+            } else if (resultData.role === 'cancel'){
+              console.log('CANCELED');
+            }
+          }
+        );
   }
 }
